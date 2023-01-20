@@ -13,7 +13,6 @@ class test_dataset:
             transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
         self.gt_transform = transforms.ToTensor()
         self.size = len(self.images)
-        self.igt_transformndex = 0
 
     def load_data(self):
         image = Image.open(self.images)

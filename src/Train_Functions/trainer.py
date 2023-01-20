@@ -31,8 +31,8 @@ def trainer(train_loader, model, optimizer, epoch, opt, total_step, scaler):
         optimizer.zero_grad()
         images, gts = data_pack
         # Variables are just wrappers for the tensors so we can easily auto compute the gradients.
-        images = Variable(images).cuda()
-        gts = Variable(gts).cuda()
+        images = images.cuda(non_blocking=True)
+        gts = gts.cuda(non_blocking=True)
         with torch.autocast(device_type='cuda', dtype=torch.float16):
             output_mask_top, output_mask_top_bottom = model(images)
             assert output_mask_top.dtype is torch.float16, "float16 Error From Model During Training"

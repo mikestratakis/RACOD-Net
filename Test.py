@@ -4,6 +4,7 @@ import argparse
 import torch.nn as nn
 import numpy as np
 import matplotlib.pyplot as plt
+import torch.nn.functional as F
 from PIL import Image
 from tqdm import tqdm
 from os import path
@@ -14,7 +15,7 @@ from src.Test_Functions.test_dataloader import test_dataset
 from Evaluation_Tools.evaluation_metrics import MAE
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--testsize', type=int, default=408, help='the image input size')
+parser.add_argument('--testsize', type=int, default=456, help='the image input size')
 parser.add_argument('--lr', type=float, default=0.00002,
                     help='init learning rate, try `lr=0.000006`')
 parser.add_argument('--model_path', type=str,
@@ -38,7 +39,7 @@ model = RACOD(
     depths=[3, 8, 27, 3],
     sr_ratios=[8, 4, 2, 1],
     drop_rate=0.0,
-    drop_path_rate=0.1,
+    drop_path_rate=0.0,
     decoder_channels=768,
     num_classes=1
 ).cuda()
@@ -72,11 +73,11 @@ for i in tqdm(range(len(test_images))):
     image = image.cuda()
     # inference
     _, output_mask = model(image)
-    # reshape and squeeze
-    output_mask = nn.functional.interpolate(output_mask, size=gt.shape, mode='bilinear', align_corners=False)
-    output_mask = output_mask.sigmoid().data.cpu().numpy().squeeze()
-    # normalize
-    output_mask = (output_mask - output_mask.min()) / (output_mask.max() - output_mask.min() + 1e-8)
+    # reshape and normalize
+    output_mask = F.interpolate(output_mask, size=gt.shape, mode='bilinear', align_corners=False)
+    output_mask = torch.sigmoid(output_mask)
+    output_mask = np.uint8(output_mask.squeeze().detach().cpu().numpy()*255)
+    output_mask = output_mask / (np.linalg.norm(output_mask) +  1e-8)
     _MAE.step(pred=output_mask, gt=gt)
     temp = _MAE.get_results()['mae']
     #print(f'[Test] Image_Name: {test_images[i][21:]} ({i}/{len(test_images)}), MAE: {temp:.3f}')

@@ -35,6 +35,7 @@ class DWConv(nn.Module):
 class Mlp(nn.Module):
     def __init__(self, in_features, hidden_features=None, out_features=None, act_layer=nn.GELU, drop=0.):
         super().__init__()
+        self.drop = drop
         out_features = out_features or in_features
         self.hidden_features = hidden_features or in_features
         hidden_features = hidden_features or in_features
@@ -42,7 +43,7 @@ class Mlp(nn.Module):
         self.dwconv = DWConv(hidden_features)
         self.act = act_layer()
         self.fc2 = nn.Linear(hidden_features, out_features)
-        self.drop = nn.Dropout(drop)
+        self.drop = nn.Dropout(drop, inplace=True) if self.drop else nn.Identity()
 
     def forward(self, x, H, W):
         x = self.fc1(x)

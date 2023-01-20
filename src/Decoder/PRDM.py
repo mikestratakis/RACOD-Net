@@ -1,5 +1,6 @@
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 class ChannelAttention(nn.Module):
     def __init__(self, in_planes, ratio=16):
@@ -64,29 +65,29 @@ class PRDM(nn.Module):
         c1, c2, c3, c4 = features[0], features[1], features[2], features[3]
         
         ############## Fusing C3 With X2 #############
-        conv_c3 = self.conv_convert_320_512(nn.functional.interpolate(c3, size=x2.size()[2:], mode='bilinear', align_corners=False))        
+        conv_c3 = self.conv_convert_320_512(F.interpolate(c3, size=x2.size()[2:], mode='bilinear', align_corners=False))        
         _c3_x2 = conv_c3 * x2 # (BS, 512, 51, 51)
         mixed_features = self.conv_convert_1024_768(torch.cat((_c3_x2, x2), dim=1)) # (BS, 768, 51, 51)
 
         ############## Decoder on C2-C4 ##############
         _c2 = self.conv_128(c2) # from (BS, 128, 51, 51) => (BS, 768, 51, 51)
-        _c3 = self.conv_same(nn.functional.interpolate(mixed_features, size=c3.size()[2:], mode='bilinear', align_corners=False)) # (BS, 768, 26, 26)
+        _c3 = self.conv_same(F.interpolate(mixed_features, size=c3.size()[2:], mode='bilinear', align_corners=False)) # (BS, 768, 26, 26)
         _c4 = self.conv_512(c4) # from (BS, 512, 13, 13) => (BS, 768, 13, 13)
-        _c4_upsample2 = self.conv_same(nn.functional.interpolate(_c4, size=c3.size()[2:], mode='bilinear', align_corners=False)) # (BS, 768, 26, 26)
+        _c4_upsample2 = self.conv_same(F.interpolate(_c4, size=c3.size()[2:], mode='bilinear', align_corners=False)) # (BS, 768, 26, 26)
         
         _c4_c3 = self.conv_double_same(torch.cat((_c4_upsample2 * _c3, _c4_upsample2), dim=1)) # (BS, 1536, 26, 26)
-        _c4_c3 = self.conv_restore_double(nn.functional.interpolate(_c4_c3, size=c2.size()[2:], mode='bilinear', align_corners=False)) # (768, 51, 51)
-        _c4_upsample4 = self.conv_same(nn.functional.interpolate(_c4, size=c2.size()[2:], mode='bilinear', align_corners=False)) # (768, 51, 51)
+        _c4_c3 = self.conv_restore_double(F.interpolate(_c4_c3, size=c2.size()[2:], mode='bilinear', align_corners=False)) # (768, 51, 51)
+        _c4_upsample4 = self.conv_same(F.interpolate(_c4, size=c2.size()[2:], mode='bilinear', align_corners=False)) # (768, 51, 51)
         _c4_c3_c2 = _c4_upsample4 * _c2 * _c4_c3 # (768, 51, 51)
         
         top_features = self.conv_restore_double((torch.cat((_c4_c3_c2,  mixed_features), dim=1))) # (768, 51, 51)
-        final_output_top = nn.functional.interpolate(self.linear_pred_top(top_features), scale_factor=8, mode='bilinear', align_corners=False) # (1, 1, 408, 408)
+        final_output_top = F.interpolate(self.linear_pred_top(top_features), scale_factor=8, mode='bilinear', align_corners=False) # (1, 1, 408, 408)
         
         ############## Decoder on C1-X0-X1 ##############
         x01 = self.conv_convert_320_384(torch.cat((x0, x1), dim=1))       # (BS, 384, 102, 102)
         #_c1_x0 = self.conv_convert_64_384(c1 * x0)                        # (BS, 384, 102, 102)
         final_bottom = self.conv_same(torch.cat((self.conv_convert_64_384(c1 * x0) * x01 , x01), dim=1)) # (BS, 768, 102, 102)
-        final_bottom = self.conv_same(nn.functional.interpolate(final_bottom, size=c2.size()[2:], mode='bilinear', align_corners=False))# (BS, 768, 51, 51)
+        final_bottom = self.conv_same(F.interpolate(final_bottom, size=c2.size()[2:], mode='bilinear', align_corners=False))# (BS, 768, 51, 51)
         final_bottom = self.conv_restore_double(torch.cat((mixed_features * final_bottom, mixed_features), dim=1)) # (BS, 768, 51, 51)
 
         ############## Channel Attention Between Top and Bottom  Features ##############
@@ -94,6 +95,6 @@ class PRDM(nn.Module):
         final_output = self.channelattn(add_features) * add_features # (BS, 768, 51, 51)
         mixed_features = self.conv_restore_double(torch.cat((_c4_c3, final_bottom), dim=1))  # (BS, 768, 51, 51)
         final_output = self.channelattn(mixed_features) * final_output # (BS, 768, 51, 51)
-        final_output = nn.functional.interpolate(self.linear_pred_final(final_output), scale_factor=8, mode='bilinear', align_corners=False) # (1, 1, 408, 408)
+        final_output = F.interpolate(self.linear_pred_final(final_output), scale_factor=8, mode='bilinear', align_corners=False) # (1, 1, 408, 408)
         
         return final_output_top, final_output

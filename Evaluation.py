@@ -2,6 +2,7 @@ import torch
 import argparse
 import torch.nn as nn
 import numpy as np
+import torch.nn.functional as F
 from tqdm import tqdm
 from src.Test_Functions.test_dataloader import test_dataset
 from src.Model.RACOD import RACOD
@@ -10,7 +11,7 @@ from functools import partial
 from Evaluation_Tools.evaluation_metrics import MAE, WeightedFmeasure, Emeasure, Smeasure
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--evalsize', type=int, default=408, help='the image input size')
+parser.add_argument('--evalsize', type=int, default=456, help='the image input size')
 parser.add_argument('--lr', type=float, default=0.00002,
                     help='init learning rate, try `lr=0.000006`')
 parser.add_argument('--model_path', type=str,
@@ -26,10 +27,11 @@ model = RACOD(
     mlp_ratios=[4, 4, 4, 4],
     qkv_bias=True,
     norm_layer=partial(nn.LayerNorm, eps=1e-6),
+    #depths=[3, 6, 40, 3],
     depths=[3, 8, 27, 3],
     sr_ratios=[8, 4, 2, 1],
     drop_rate=0.0,
-    drop_path_rate=0.1,
+    drop_path_rate=0.0,
     decoder_channels=768,
     num_classes=1
 ).cuda()
@@ -71,11 +73,11 @@ for i in tqdm(range(0, len(dictionary_of_evaluation), 2)):
         image = image.cuda()
         # inference
         _, output_mask = model(image)
-        # reshape and squeeze
-        output_mask = nn.functional.interpolate(output_mask, size=gt.shape, mode='bilinear', align_corners=False)
-        output_mask = output_mask.sigmoid().data.cpu().numpy().squeeze()
-        # normalize
-        output_mask = (output_mask - output_mask.min()) / (output_mask.max() - output_mask.min() + 1e-8)
+        # reshape and normalize
+        output_mask = F.interpolate(output_mask, size=gt.shape, mode='bilinear', align_corners=False)
+        output_mask = torch.sigmoid(output_mask)
+        output_mask = np.uint8(output_mask.squeeze().detach().cpu().numpy()*255)
+        output_mask = output_mask / (np.linalg.norm(output_mask) +  1e-8)
         # metrics
         WFM.step(pred=output_mask, gt=gt)
         SM.step(pred=output_mask, gt=gt)

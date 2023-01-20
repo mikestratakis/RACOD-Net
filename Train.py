@@ -23,9 +23,9 @@ parser.add_argument('--epoch', type=int, default=39,
                     help='epoch number, default=39')
 parser.add_argument('--lr', type=float, default=0.00002,
                     help='init learning rate, try `lr=0.000006`')
-parser.add_argument('--batchsize', type=int, default=8,
+parser.add_argument('--batchsize', type=int, default=6,
                     help='training batch size')
-parser.add_argument('--trainsize', type=int, default=408,
+parser.add_argument('--trainsize', type=int, default=456,
                     help='the size of training image, try small resolutions for speed (like 352 or 384)')
 parser.add_argument('--gpu', type=int, default=0,
                     help='choose which gpu you use')
@@ -46,14 +46,14 @@ model = RACOD(
     depths=[3, 8, 27, 3],
     sr_ratios=[8, 4, 2, 1],
     drop_rate=0.0,
-    drop_path_rate=0.05,
+    drop_path_rate=0.0,
     decoder_channels=768,
     num_classes=1
 ).cuda()
 
-optimizer = torch.optim.Adam(model.parameters(), args.lr, weight_decay=0.0005)
-#scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=10, T_mult=1, eta_min=0.000006, last_epoch=-1)
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=15, gamma=0.3)
+optimizer = torch.optim.Adam(model.parameters(), args.lr, weight_decay=args.lr)
+scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, T_0=5, T_mult=6, eta_min=0.000006, last_epoch=-1)
+#scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=15, gamma=0.3)
 
 train_loader = get_loader(train_images, train_images_gt_object, batchsize=args.batchsize,
                           trainsize=args.trainsize, num_workers=12)
@@ -63,10 +63,11 @@ total_step = len(train_loader)
 print(f'\n', '*' * 30, "\n[Training Dataset INFO]\nimg_dir: {}\ngt_dir: {}\nLearning Rate: {}\nBatch_Size: {}\n"
                     "Image_Size: {}\nTraining_Epochs: {}\nTraining_Save: {}\nTotal_Num_Of_Images: {}\n".
                     format(args.train_img_dir, args.train_gt_dir, args.lr, args.batchsize, 
-                    args.trainsize, args.epoch, args.save_model, total_step * args.batchsize), '*' * 30, f'\n')
+                    args.trainsize, args.epoch, args.save_model, len(train_images)), '*' * 30, f'\n')
 
 # initialize GradScaler instance since we are using Automatic Mixed Precision
 scaler = torch.cuda.amp.GradScaler()
+#lrs = []
 
 # total of args.epoch for training
 for epoch_iter in tqdm(range(1, args.epoch + 1)):
@@ -74,4 +75,9 @@ for epoch_iter in tqdm(range(1, args.epoch + 1)):
     trainer(train_loader=train_loader, model=model,
             optimizer=optimizer, epoch=epoch_iter,
            opt=args, total_step=total_step, scaler=scaler)
-    scheduler.step()
+    if epoch_iter >= 15:
+        scheduler.step()
+    #lrs.append(optimizer.param_groups[0]["lr"])
+
+#plt.plot(lrs)
+#plt.show()

@@ -2,6 +2,7 @@ import torch
 import argparse
 import torch.nn as nn
 import numpy as np
+import torch.nn.functional as F
 from tqdm import tqdm
 from src.Test_Functions.test_dataloader import test_dataset
 from src.Model.RACOD import RACOD
@@ -71,11 +72,11 @@ for i in range(0, len(dictionary_of_evaluation), 2):
         image = image.cuda()
         # inference
         _, output_mask = model(image)
-        # reshape and squeeze
-        output_mask = nn.functional.interpolate(output_mask, size=gt.shape, mode='bilinear', align_corners=False)
-        output_mask = output_mask.sigmoid().data.cpu().numpy().squeeze()
-        # normalize
-        output_mask = (output_mask - output_mask.min()) / (output_mask.max() - output_mask.min() + 1e-8)
+        # reshape and normalize
+        output_mask = F.interpolate(output_mask, size=gt.shape, mode='bilinear', align_corners=False)
+        output_mask = torch.sigmoid(output_mask)
+        output_mask = np.uint8(output_mask.squeeze().detach().cpu().numpy()*255)
+        output_mask = output_mask / (np.linalg.norm(output_mask) +  1e-8)
         # metrics
         WFM.step(pred=output_mask, gt=gt)
         SM.step(pred=output_mask, gt=gt)
