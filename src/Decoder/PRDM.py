@@ -67,7 +67,7 @@ class PRDM(nn.Module):
         ############## Fusing C3 With X2 #############
         conv_c3 = self.conv_convert_320_512(F.interpolate(c3, size=x2.size()[2:], mode='bilinear', align_corners=False))        
         _c3_x2 = conv_c3 * x2 # (BS, 512, 57, 57)
-        mixed_features = self.conv_convert_1024_768(torch.cat((_c3_x2, conv_c3), dim=1)) # (BS, 768, 57, 57)
+        mixed_features = self.conv_convert_1024_768(torch.cat((_c3_x2, x2), dim=1)) # (BS, 768, 57, 57)
         
         ############## Decoder on C2-C4 ##############
         _c2 = self.conv_128(c2) # from (BS, 128, 57, 57) => (BS, 768, 57, 57)
