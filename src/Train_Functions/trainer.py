@@ -58,7 +58,6 @@ def trainer(train_loader, model, optimizer, epoch, opt, total_step, scaler):
         if step % 10 == 0 or step == total_step:
             print('[Epoch Num: {:03d}/{:03d}] => [Global Step: {:04d}/{:04d}] => [Loss_Top: {:.4f} Loss_Top_Bottom: {:0.4f}]'
                   .format(epoch, opt.epoch, step, total_step, loss_top.data, loss_top_bottom.data))
-            print(f'So far we have {all_dataset_loss_top/iterations:.4f} --- {all_dataset_loss_top_bottom/iterations:.4f}')
 
     average_loss_num_top = all_dataset_loss_top/iterations
     average_loss_num_top_bottom = all_dataset_loss_top_bottom/iterations

@@ -26,11 +26,11 @@ class RACOD(nn.Module):
             self.initialize_weights_vit()      
             
     def forward(self, x):
-        x0 = self.resnet.layer0(x)              # (64, 102, 102)
-        x1 = self.resnet.layer1(x0)             # (256, 102, 102)
-        x2 = self.resnet.layer2(x1)             # (512, 51, 51)
+        x0 = self.resnet.layer0(x)              # (BS, 64, 114, 114)
+        x1 = self.resnet.layer1(x0)             # (BS, 256, 114, 114)
+        x2 = self.resnet.layer2(x1)             # (BS, 512, 57, 57)
         features = self.MixVisionTransformerEncoder(x)  # 4 feautures produced here from SegFormer
-        segmentation = self.PRDM(features, x0, x1, x2)  # Returns 2 predictions both in size (1, 1, 408, 408)
+        segmentation = self.PRDM(features, x0, x1, x2)  # Returns 2 predictions both in size (1, 1, 456, 456)
         return segmentation
     
     def initialize_weights_resnet(self):
