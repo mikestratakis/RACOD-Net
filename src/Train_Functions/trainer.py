@@ -8,7 +8,7 @@ from torch.autograd import Variable
 def structure_loss(pred, mask):
     
     # BCE loss
-    k = nn.Softmax2d()
+    k = nn.Sigmoid()
     weit = torch.abs(pred - mask)
     weit = k(weit)
     wbce = F.binary_cross_entropy_with_logits(pred, mask, reduction='none')

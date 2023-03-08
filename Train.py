@@ -67,7 +67,7 @@ print(f'\n', '*' * 30, "\n[Training Dataset INFO]\nimg_dir: {}\ngt_dir: {}\nLear
 
 # initialize GradScaler instance since we are using Automatic Mixed Precision
 scaler = torch.cuda.amp.GradScaler()
-#lrs = []
+lrs = []
 
 # total of args.epoch for training
 for epoch_iter in tqdm(range(1, args.epoch + 1)):
@@ -77,7 +77,10 @@ for epoch_iter in tqdm(range(1, args.epoch + 1)):
            opt=args, total_step=total_step, scaler=scaler)
     if epoch_iter >= 15:
         scheduler.step()
-    #lrs.append(optimizer.param_groups[0]["lr"])
+    lrs.append(optimizer.param_groups[0]["lr"])
 
-#plt.plot(lrs)
-#plt.show()
+plt.plot(lrs)
+plt.title("Learning Rate Strategy")
+plt.xlabel("Epochs")
+plt.ylabel("LR Value")
+plt.show()

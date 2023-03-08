@@ -93,7 +93,7 @@ def dataset_creation(show=True):
         print('[INFO] Initializing Train Dataset composed by COD10K + CAMO')
         print(60*'-')
         print(10*' ' + f'Train Images From Train Dataset are => {len(train_images)}')
-        print(10*' ' + f'Train Images With Train Dataset are => {len(train_images_gt_object)}')
+        print(10*' ' + f'Train Images With GT-Object are => {len(train_images_gt_object)}')
         print(60*'-')
         print('[INFO] Creating Test Dataset composed by COD10K + CAMO + CHAMELEON + NC4K')
         print(60*'-')
