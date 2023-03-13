@@ -43,7 +43,9 @@ We argue that our final segmentation results are very close to the ground-truth 
 </p>
 
 ## Qualitative Comparison <a name="Qualitative Comparison"></a>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+We compare RACOD-Net with several state-of-the-art camouflaged object detection studies that deploys either a CNN or a Transformer based arhitechure. As shown in Tab. 1 RACOD-Net surpasses almost all methods in several evaluation metrics in almost all datasets. Even when RACOD-Net's predictions come second they are still very close from reaching the top.
+For fair comparison, all the predictions are evaluated using the same evaluation metrics and the same evaluation code. Additionally, all the camouflaged maps prediction scores are provided either by the authors or generated
+by retraining the models with the provided open source codes.
 <p align="center">
   <img src="https://github.com/mikestratakis/RACOD-Net/blob/master/ShowCase-RACOD-Net/quantitative_results.png" />
 </p>
