@@ -23,7 +23,7 @@ In order to execute RACOD-Net you need to install certain libraries. We advice f
 - Based from the cuda version downloaded from step 1, install cuda from: https://pytorch.org/get-started/locally/ 
 - Before executing any code choose the python interpeter from the miniconda environment
 - Afterwards install the following packages:
-    - Sub Item 1
+    - Sub Install timm conda:  conda install -c conda-forge timm 
 ## Datasets <a name="Datasets"></a>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ## Produced Weights  <a name="Produced Weights "></a>
