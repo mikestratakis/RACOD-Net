@@ -36,7 +36,7 @@ After successfully downloading the weights place them inside the folder Produced
 ## Results <a name="Results"></a>
 We argue that our final segmentation results are very close to the ground-truth annotations, by successfully segmenting not only large camouflaged objects but also small ones. From the figure below and various other results we observed that our method successfully segments the position of camouflage objects with accurate and precise boundaries over several challenging scenes, such as multiple and low-contrast objects. Even when some camouflaged objects are divided into separate parts because of the interference with other non-camouflaged objects RACOD-Net is still capable of detecting and segmenting the expected target.
 <p align="center">
-  <img src="[http://some_place.com/image.png](https://github.com/mikestratakis/RACOD-Net/blob/master/ShowCase-RACOD-Net/comparative_results.png)" />
+  <img src="https://github.com/mikestratakis/RACOD-Net/blob/master/ShowCase-RACOD-Net/comparative_results.png)" />
 </p>
 ## Qualitative Comparison <a name="Qualitative Comparison"></a>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
