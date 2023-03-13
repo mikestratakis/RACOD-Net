@@ -19,7 +19,7 @@ parser.add_argument('--model_path', type=str,
 
 evaluation_args = parser.parse_args("")
 
-dictionary_of_evaluation = dataset_creation()
+_, _, dictionary_of_evaluation = dataset_creation()
 
 model = RACOD(
     img_size=352,
@@ -87,7 +87,7 @@ for i in range(0, len(dictionary_of_evaluation), 2):
     sm = SM.get_results()['sm']
     em = EM.get_results()['em']
     mae = _MAE.get_results()['mae']
-    e_measure_adp = em['adp'].mean()
+    e_measure_adp = em['adp']
     e_measure_mean = em['curve'].mean()
     
     print(f'[Testing Done In {dataset_name} Dataset] Mean Absolute Error => {mae:.3f}')
