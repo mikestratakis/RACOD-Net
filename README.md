@@ -29,13 +29,15 @@ In order to execute RACOD-Net you need to install certain libraries. We advice f
     - Install matplot with conda: conda install -c conda-forge matplotlib
     - Install scipy with conda: conda install -c anaconda scipy
     - Install cv2 with conda: conda install -c conda-forge opencv
-    
+
 ## Datasets <a name="Datasets"></a>
 Download the train and test datasets for Camouflaged Object Detection and Polyp Detection from the following link:
 Afterwards place the downloaded compressed files inside folder Datasets and decompress.
 ## Produced Weights  <a name="Produced Weights "></a>
-We provide our best weights, setting new records over many evaluation metrics, from the following link:
+For camouflaged ovject detection we provide our best weights, setting new records over many evaluation metrics, from the following link:
 After successfully downloading the weights place them inside the folder Produced_Weights/RACOD
+For polyp segmentation we added the files Train_Polyp and Evaluation_Polyp. The best weights will be soon provided. Feel free until then to explore the results.
+
 
 ## Results <a name="Results"></a>
 We argue that our final segmentation results are very close to the ground-truth annotations, by successfully segmenting not only large camouflaged objects but also small ones. From the figure below and various other results we observed that our method successfully segments the position of camouflage objects with accurate and precise boundaries over several challenging scenes, such as multiple and low-contrast objects. Even when some camouflaged objects are divided into separate parts because of the interference with other non-camouflaged objects RACOD-Net is still capable of detecting and segmenting the expected target.
