@@ -50,6 +50,4 @@ by retraining the models with the provided open source codes.
   <img src="https://github.com/mikestratakis/RACOD-Net/blob/master/ShowCase-RACOD-Net/quantitative_results.png" />
 </p>
 
-$${\color{red}Red, \color{green}Green, \color{blue}Blue}$$
-
-\textcolor{red}{Red}, \textcolor{ForestGreen}{Green}, and \textcolor{blue}{Blue} indicate the best, second best and third best performance. ‘↑/↓’ denotes that the higher/lower the score, the better.
+$${\color{red}Red, \color{green}Green, \color{blue}Blue}  indicate the best, second best and third best performance. ‘↑/↓’ denotes that the higher/lower the score, the better.$$
