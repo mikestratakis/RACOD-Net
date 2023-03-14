@@ -54,15 +54,12 @@ by retraining the models with the provided open source codes.
 ${\color{red}Red,\space \color{green}Green,\space \color{blue}Blue}$  indicate the best, second best and third best performance. ‘↑/↓’ denotes that the higher/lower the score, the better.
 
 ## Licence <a name="Licence"></a>
-Copyright \copyright\ -- All rights reserved\ \
-    All rights reserved.\\[12pt]
-    Copying, storing and distribution of this work is prohibited, ex
-    in whole or in part, for a commercial purpose. Reprinting is permitted,
+Copyright © – All rights reserved Στρατάκης Μιχαήλ, 2022.
+    Copying, storing and distribution of this work is prohibited,
+    in whole or in part, for commercial purposes. Reprinting is permitted,
     storage and distribution for non-profit, educational or
     of a research nature, provided that the source of origin is indicated and that
     the present message is retained. Questions concerning the use of the work
-    for profit should be addressed to
-    author.
+    for profit should be addressed to the author.
     The opinions and conclusions contained in this document express
-    the author and should not be construed as representing the official
-    positions of the National Technical University of Athens.
+    the author.
