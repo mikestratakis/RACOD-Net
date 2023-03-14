@@ -54,7 +54,7 @@ by retraining the models with the provided open source codes.
 ${\color{red}Red,\space \color{green}Green,\space \color{blue}Blue}$  indicate the best, second best and third best performance. ‘↑/↓’ denotes that the higher/lower the score, the better.
 
 ## Licence <a name="Licence"></a>
-Copyright © – All rights reserved Στρατάκης Μιχαήλ, 2022.
+Copyright © – All rights reserved Mike Stratakis, 2023.
     Copying, storing and distribution of this work is prohibited,
     in whole or in part, for commercial purposes. Reprinting is permitted,
     storage and distribution for non-profit, educational or
