@@ -10,7 +10,8 @@ Camouflage Object Detection
   - [Produced Weights  ](#produced-weights--)
   - [Results ](#results-)
   - [Qualitative Comparison ](#qualitative-comparison-)
-
+  - [License ](#licence-)
+  
 ## RACOD-Net <a name="introduction"></a>
 Unlike previous studies RACOD architecture manages to successfully combine two powerful backbone encoders, a CNN encoder and a Transformer encoder, through a novel partial cascaded decoder to output an enriched tensor containing both global and local information.
 As shown in the figure below, displaying the complete architechure, we initially have a total of 7 features from our backbone encoders. A set of 3 features extracted from ResNet50 encoder and a set of 4 features extracted from SegFormer encoder.
@@ -51,3 +52,17 @@ by retraining the models with the provided open source codes.
 </p>
 
 ${\color{red}Red,\space \color{green}Green,\space \color{blue}Blue}$  indicate the best, second best and third best performance. ‘↑/↓’ denotes that the higher/lower the score, the better.
+
+## Licence <a name="Licence"></a>
+Copyright \copyright\ -- All rights reserved\ \
+    All rights reserved.\\[12pt]
+    Copying, storing and distribution of this work is prohibited, ex
+    in whole or in part, for a commercial purpose. Reprinting is permitted,
+    storage and distribution for non-profit, educational or
+    of a research nature, provided that the source of origin is indicated and that
+    the present message is retained. Questions concerning the use of the work
+    for profit should be addressed to
+    author.
+    The opinions and conclusions contained in this document express
+    the author and should not be construed as representing the official
+    positions of the National Technical University of Athens.
