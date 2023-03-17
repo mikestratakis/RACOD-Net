@@ -32,14 +32,14 @@ In order to execute RACOD-Net you need to install certain libraries. We advice f
 
 ## Datasets <a name="Datasets"></a>
 Download the train and test datasets for Camouflaged Object Detection and Polyp Detection from the following links:
-- Camouflaged Object Datasets:
-- Polyp Segmentation Datasets:
+- Camouflaged Object Datasets: Link coming soon
+- Polyp Segmentation Datasets: Link coming soon
 
 Afterwards place the downloaded compressed files inside folder Datasets and decompress.
 
 ## Produced Weights  <a name="Produced Weights "></a>
 For camouflaged ovject detection we provide our best weights, setting new records over many evaluation metrics, from the following link:
--
+- Link coming soon
 
 After successfully downloading the weights place them inside the folder Produced_Weights/RACOD <br/>
 For polyp segmentation we added the files Train_Polyp and Evaluation_Polyp. The best weights will be soon provided. Feel free until then to explore the results.
