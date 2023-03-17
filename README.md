@@ -41,8 +41,9 @@ Afterwards place the downloaded compressed files inside folder Datasets and deco
 For camouflaged ovject detection we provide our best weights, setting new records over many evaluation metrics, from the following link:
 - :boom: Link coming soon :boom:
 
-After successfully downloading the weights place them inside the folder Produced_Weights/RACOD <br/>
-For polyp segmentation we added the files Train_Polyp and Evaluation_Polyp. The best weights will be soon provided. Feel free until then to explore the results.
+After successfully downloading the weights place them inside the folder Produced_Weights/RACOD/COD/ <br/>
+For polyp segmentation we added the files Train_Polyp and Evaluation_Polyp to train and evaluate over polyp datasets. <br/>
+The best weights for polyp segmentation will be soon provided.
 
 
 ## :fire: Results :fire: <a name="Results"></a>
