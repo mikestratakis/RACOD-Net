@@ -11,11 +11,12 @@ from functools import partial
 from Evaluation_Tools.evaluation_metrics import MAE, WeightedFmeasure, Emeasure, Smeasure
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--evalsize', type=int, default=408, help='the image input size')
+# for polyp we use at the moment size 352x352 since the images in the dataset have similar resolution
+parser.add_argument('--evalsize', type=int, default=352, help='the image input size')
 parser.add_argument('--lr', type=float, default=0.00002,
                     help='init learning rate, try `lr=0.000006`')
 parser.add_argument('--model_path', type=str,
-                    default='Produced_Weights/RACOD/RACOD_checkpoint.pt')
+                    default='Produced_Weights/RACOD/Polyp/RACOD_checkpoint.pt')
 
 evaluation_args = parser.parse_args("")
 
@@ -31,7 +32,7 @@ model = RACOD(
     depths=[3, 8, 27, 3],
     sr_ratios=[8, 4, 2, 1],
     drop_rate=0.0,
-    drop_path_rate=0.1,
+    drop_path_rate=0.0,
     decoder_channels=768,
     num_classes=1
 ).cuda()

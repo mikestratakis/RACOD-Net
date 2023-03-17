@@ -15,7 +15,7 @@ parser.add_argument('--evalsize', type=int, default=456, help='the image input s
 parser.add_argument('--lr', type=float, default=0.00002,
                     help='init learning rate, try `lr=0.000006`')
 parser.add_argument('--model_path', type=str,
-                    default='Produced_Weights/RACOD/RACOD_checkpoint.pt')
+                    default='Produced_Weights/RACOD/COD/RACOD_checkpoint.pt')
 
 evaluation_args = parser.parse_args("")
 _, _, _, _, dictionary_of_evaluation = dataset_creation(show=False)
@@ -88,7 +88,7 @@ for i in tqdm(range(0, len(dictionary_of_evaluation), 2)):
     sm = SM.get_results()['sm']
     em = EM.get_results()['em']
     mae = _MAE.get_results()['mae']
-    e_measure_adp = em['adp'].mean()
+    e_measure_adp = em['adp']
     e_measure_mean = em['curve'].mean()
     
     print(f'[Testing Done In {dataset_name} Dataset] Mean Absolute Error => {mae:.3f}')

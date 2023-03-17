@@ -25,12 +25,13 @@ parser.add_argument('--lr', type=float, default=0.00002,
                     help='init learning rate, try `lr=0.000006`')
 parser.add_argument('--batchsize', type=int, default=6,
                     help='training batch size')
-parser.add_argument('--trainsize', type=int, default=456,
+# for polyp we use at the moment size 352x352 since the images in the dataset have similar resolution
+parser.add_argument('--trainsize', type=int, default=352,
                     help='the size of training image, try small resolutions for speed (like 352 or 384)')
 parser.add_argument('--gpu', type=int, default=0,
                     help='choose which gpu you use')
 
-parser.add_argument('--save_model', type=str, default='Produced_Weights/RACOD/Polyp')
+parser.add_argument('--save_model', type=str, default='Produced_Weights/RACOD/Polyp/')
 parser.add_argument('--train_img_dir', type=str, default='Training Directory From Kvasir-SEG + CVC-ClinicDB')
 parser.add_argument('--train_gt_dir', type=str, default='GT Objects Directory From Kvasir-SEG + CVC-ClinicDB')
 args = parser.parse_args("")

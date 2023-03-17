@@ -30,7 +30,7 @@ parser.add_argument('--trainsize', type=int, default=456,
 parser.add_argument('--gpu', type=int, default=0,
                     help='choose which gpu you use')
 
-parser.add_argument('--save_model', type=str, default='Produced_Weights/RACOD/')
+parser.add_argument('--save_model', type=str, default='Produced_Weights/RACOD/COD/')
 parser.add_argument('--train_img_dir', type=str, default='Training Directory From COD10K + CAMO')
 parser.add_argument('--train_gt_dir', type=str, default='GT Objects Directory From COD10K + CAMO')
 args = parser.parse_args("")

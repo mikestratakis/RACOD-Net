@@ -19,7 +19,7 @@ parser.add_argument('--testsize', type=int, default=456, help='the image input s
 parser.add_argument('--lr', type=float, default=0.00002,
                     help='init learning rate, try `lr=0.000006`')
 parser.add_argument('--model_path', type=str,
-                    default='Produced_Weights/RACOD/RACOD_checkpoint.pt')
+                    default='Produced_Weights/RACOD/COD/RACOD_checkpoint.pt')
 parser.add_argument('--test_save', type=str,
                     default='Results/Test/')
 
