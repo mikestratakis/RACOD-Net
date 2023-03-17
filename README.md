@@ -10,7 +10,8 @@ Camouflage Object Detection
   - [Produced Weights  ](#produced-weights--)
   - [Results ](#results-)
   - [Qualitative Comparison ](#qualitative-comparison-)
-
+  - [License ](#licence-)
+  
 ## RACOD-Net <a name="introduction"></a>
 Unlike previous studies RACOD architecture manages to successfully combine two powerful backbone encoders, a CNN encoder and a Transformer encoder, through a novel partial cascaded decoder to output an enriched tensor containing both global and local information.
 As shown in the figure below, displaying the complete architechure, we initially have a total of 7 features from our backbone encoders. A set of 3 features extracted from ResNet50 encoder and a set of 4 features extracted from SegFormer encoder.
@@ -28,22 +29,45 @@ In order to execute RACOD-Net you need to install certain libraries. We advice f
     - Install matplot with conda: conda install -c conda-forge matplotlib
     - Install scipy with conda: conda install -c anaconda scipy
     - Install cv2 with conda: conda install -c conda-forge opencv
-    
-## Datasets <a name="Datasets"></a>
-Download the train and test datasets for Camouflaged Object Detection and Polyp Detection from the following link:
-Afterwards place the downloaded compressed files inside folder Datasets and decompress.
-## Produced Weights  <a name="Produced Weights "></a>
-We provide our best weights, setting new records over many evaluation metrics, from the following link:
-After successfully downloading the weights place them inside the folder Produced_Weights/RACOD
 
-## Results <a name="Results"></a>
+## Datasets <a name="Datasets"></a>
+Download the train and test datasets for Camouflaged Object Detection and Polyp Detection from the following links:
+- Camouflaged Object Datasets: :boom: Link coming soon :boom:
+- Polyp Segmentation Datasets: :boom: Link coming soon :boom:
+
+Afterwards place the downloaded compressed files inside folder Datasets and decompress.
+
+## Produced Weights  <a name="Produced Weights "></a>
+For camouflaged ovject detection we provide our best weights, setting new records over many evaluation metrics, from the following link:
+- :boom: Link coming soon :boom:
+
+After successfully downloading the weights place them inside the folder Produced_Weights/RACOD <br/>
+For polyp segmentation we added the files Train_Polyp and Evaluation_Polyp. The best weights will be soon provided. Feel free until then to explore the results.
+
+
+## :fire: Results :fire: <a name="Results"></a>
 We argue that our final segmentation results are very close to the ground-truth annotations, by successfully segmenting not only large camouflaged objects but also small ones. From the figure below and various other results we observed that our method successfully segments the position of camouflage objects with accurate and precise boundaries over several challenging scenes, such as multiple and low-contrast objects. Even when some camouflaged objects are divided into separate parts because of the interference with other non-camouflaged objects RACOD-Net is still capable of detecting and segmenting the expected target.
 <p align="center">
   <img src="https://github.com/mikestratakis/RACOD-Net/blob/master/ShowCase-RACOD-Net/visual_results.png" />
 </p>
 
-## Qualitative Comparison <a name="Qualitative Comparison"></a>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+## :fire: Qualitative Comparison :fire: <a name="Qualitative Comparison"></a>
+We compare RACOD-Net with several state-of-the-art camouflaged object detection studies that deploys either a CNN or a Transformer based arhitechure. As shown in Tab. 1 RACOD-Net surpasses almost all methods in several evaluation metrics in almost all datasets. Even when RACOD-Net's predictions come second they are still very close from reaching the top.
+For fair comparison, all the predictions are evaluated using the same evaluation metrics and the same evaluation code. Additionally, all the camouflaged maps prediction scores are provided either by the authors or generated
+by retraining the models with the provided open source codes.
 <p align="center">
   <img src="https://github.com/mikestratakis/RACOD-Net/blob/master/ShowCase-RACOD-Net/quantitative_results.png" />
 </p>
+
+${\color{red}Red,\space \color{green}Green,\space \color{blue}Blue}$  indicate the best, second best and third best performance. ‘↑/↓’ denotes that the higher/lower the score, the better.
+
+## Licence <a name="Licence"></a>
+Copyright © – All rights reserved Mike Stratakis, 2023.
+    Copying, storing and distribution of this work is prohibited,
+    in whole or in part, for commercial purposes. Reprinting is permitted,
+    storage and distribution for non-profit, educational or
+    of a research nature, provided that the source of origin is indicated and that
+    the present message is retained. Questions concerning the use of the work
+    for profit should be addressed to the author.
+    The opinions and conclusions contained in this document express
+    the author.
