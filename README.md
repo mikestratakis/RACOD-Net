@@ -1,6 +1,6 @@
 # RACOD-Net
 
-:fire:  <font size="40">Camouflage Object Detection & Segmentation</font> :fire: 
+:fire:  ## Camouflage Object Detection & Segmentation ## :fire: 
 # Table of contents
 - [RACOD-Net](#racod-net)
 - [Table of contents](#table-of-contents)
