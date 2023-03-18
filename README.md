@@ -1,6 +1,6 @@
 # RACOD-Net
-Camouflage Object Detection & Segmentation
-“<font size=”10”>”. Then, the text string which we have added is “We are setting the size 1 for this text which is the smallest font size” and the close the tag as “</font>”.
+
+:fire:  “<font size=”20”>”. Camouflage Object Detection & Segmentation “</font>” :fire: 
 # Table of contents
 - [RACOD-Net](#racod-net)
 - [Table of contents](#table-of-contents)
