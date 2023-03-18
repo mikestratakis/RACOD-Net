@@ -7,9 +7,9 @@
   - [General Instructions ](#general-instructions-)
   - [Datasets ](#datasets-)
   - [Produced Weights  ](#produced-weights--)
-  - [Results ](#results--)
-  - [Qualitative Comparison ](#qualitative-comparison--)
-  - [License ](#licence--)
+  - [Results ](#results-)
+  - [Qualitative Comparison ](#qualitative-comparison-)
+  - [License ](#licence-)
   
 ## RACOD-Net <a name="introduction"></a>
 Unlike previous studies RACOD architecture manages to successfully combine two powerful backbone encoders, a CNN encoder and a Transformer encoder, through a novel partial cascaded decoder to output an enriched tensor containing both global and local information.
@@ -36,7 +36,7 @@ Download the train and test datasets for Camouflaged Object Detection and Polyp 
 
 Afterwards place the downloaded compressed files inside folder Datasets and decompress.
 
-## Produced Weights  <a name="Produced Weights "></a>
+## Produced Weights  <a name="Produced Weights"></a>
 For camouflaged ovject detection we provide our best weights, setting new records over many evaluation metrics, from the following link:
 - :boom: Link coming soon :boom:
 
