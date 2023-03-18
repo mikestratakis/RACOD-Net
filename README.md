@@ -35,10 +35,11 @@ Download the train and test datasets for Camouflaged Object Detection and Polyp 
 - Polyp Segmentation Datasets: :boom: Link coming soon :boom:
 
 Afterwards place the downloaded compressed files inside folder Datasets and decompress.
-Also download the mit-b4 pretrained weights, required for the initialization of RACOD-Net, from the following link:
+Also download the mit-b4 pretrained weights, required for the initialization of SegFormer encoder used by RACOD-Net, from the following link:
 - mit-b4 weights: :boom: Link coming soon :boom:
 
-Afterward place the dowloaded weights inside folder
+Afterward place the dowloaded weights inside folder: Pretrained_Weights_SegFormer <br/>
+SegFormer encoder is based by the original paper: "SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers"
 
 ## Produced Weights  <a name="Produced Weights"></a>
 For camouflaged object detection we provide our best weights, setting new records over many evaluation metrics, from the following link:
