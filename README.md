@@ -35,6 +35,10 @@ Download the train and test datasets for Camouflaged Object Detection and Polyp 
 - Polyp Segmentation Datasets: :boom: Link coming soon :boom:
 
 Afterwards place the downloaded compressed files inside folder Datasets and decompress.
+Also download the mit-b4 pretrained weights, required for the initialization of RACOD-Net, from the following link:
+- mit-b4 weights: :boom: Link coming soon :boom:
+
+Afterward place the dowloaded weights inside folder
 
 ## Produced Weights  <a name="Produced Weights"></a>
 For camouflaged object detection we provide our best weights, setting new records over many evaluation metrics, from the following link:
