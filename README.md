@@ -6,7 +6,7 @@
   - [RACOD-Net ](#racod-net-)
   - [General Instructions ](#general-instructions-)
   - [Datasets ](#datasets-)
-  - [Produced Weights  ](#produced-weights--)
+  - [Produced Weights ](#produced-weights-)
   - [Results ](#Results-)
   - [Qualitative Comparison ](#qualitative-comparison-)
   - [License ](#licence-)
