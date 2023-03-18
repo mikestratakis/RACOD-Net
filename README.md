@@ -3,13 +3,13 @@
 # Table of contents
 - [RACOD-Net](#racod-net)
 - [Table of contents](#table-of-contents)
-  - [RACOD-Net ](#racod-net)
-  - [General Instructions ](#general-instructions)
-  - [Datasets ](#datasets)
-  - [Produced Weights  ](#produced-weights)
-  - [Results ](#Results)
-  - [Qualitative Comparison ](#qualitative-comparison)
-  - [License ](#licence)
+  - [RACOD-Net ](#racod-net-)
+  - [General Instructions ](#general-instructions-)
+  - [Datasets ](#datasets-)
+  - [Produced Weights  ](#produced-weights--)
+  - [Results ](#Results-)
+  - [Qualitative Comparison ](#qualitative-comparison-)
+  - [License ](#licence-)
   
 ## RACOD-Net <a name="introduction"></a>
 Unlike previous studies RACOD architecture manages to successfully combine two powerful backbone encoders, a CNN encoder and a Transformer encoder, through a novel partial cascaded decoder to output an enriched tensor containing both global and local information.
