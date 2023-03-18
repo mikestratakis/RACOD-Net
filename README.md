@@ -1,5 +1,5 @@
 # RACOD-Net
-Camouflage Object Detection
+Camouflage Object Detection & Segmentation
 
 # Table of contents
 - [RACOD-Net](#racod-net)
