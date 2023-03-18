@@ -6,8 +6,8 @@
   - [RACOD-Net ](#racod-net-)
   - [General Instructions ](#general-instructions-)
   - [Datasets ](#datasets-)
-  - [Produced Weights  ](#produced-weights--)
-  - [Results ](#results-)
+  - [Produced Weights ](#produced-weights--)
+  - [Results ](#Results-)
   - [Qualitative Comparison ](#qualitative-comparison-)
   - [License ](#licence-)
   
@@ -36,8 +36,8 @@ Download the train and test datasets for Camouflaged Object Detection and Polyp 
 
 Afterwards place the downloaded compressed files inside folder Datasets and decompress.
 
-## Produced Weights  <a name="Produced Weights "></a>
-For camouflaged ovject detection we provide our best weights, setting new records over many evaluation metrics, from the following link:
+## Produced Weights  <a name="Produced Weights"></a>
+For camouflaged object detection we provide our best weights, setting new records over many evaluation metrics, from the following link:
 - :boom: Link coming soon :boom:
 
 After successfully downloading the weights place them inside the folder Produced_Weights/RACOD/COD/ <br/>
@@ -45,13 +45,16 @@ For polyp segmentation we added the files Train_Polyp and Evaluation_Polyp to tr
 The best weights for polyp segmentation will be soon provided.
 
 
-## :fire: Results :fire: <a name="Results"></a>
+## Results <a name="Results"></a>
 We argue that our final segmentation results are very close to the ground-truth annotations, by successfully segmenting not only large camouflaged objects but also small ones. From the figure below and various other results we observed that our method successfully segments the position of camouflage objects with accurate and precise boundaries over several challenging scenes, such as multiple and low-contrast objects. Even when some camouflaged objects are divided into separate parts because of the interference with other non-camouflaged objects RACOD-Net is still capable of detecting and segmenting the expected target.
+Download our best visual results from the following links:
+- Visual Results: :boom: Link coming soon :boom:
+
 <p align="center">
   <img src="https://github.com/mikestratakis/RACOD-Net/blob/master/ShowCase-RACOD-Net/visual_results.png" />
 </p>
 
-## :fire: Qualitative Comparison :fire: <a name="Qualitative Comparison"></a>
+## Qualitative Comparison <a name="Qualitative Comparison"></a>
 We compare RACOD-Net with several state-of-the-art camouflaged object detection studies that deploys either a CNN or a Transformer based arhitechure. As shown in Tab. 1 RACOD-Net surpasses almost all methods in several evaluation metrics in almost all datasets. Even when RACOD-Net's predictions come second they are still very close from reaching the top.
 For fair comparison, all the predictions are evaluated using the same evaluation metrics and the same evaluation code. Additionally, all the camouflaged maps prediction scores are provided either by the authors or generated
 by retraining the models with the provided open source codes.
