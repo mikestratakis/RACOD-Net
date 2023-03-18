@@ -45,7 +45,7 @@ For polyp segmentation we added the files Train_Polyp and Evaluation_Polyp to tr
 The best weights for polyp segmentation will be soon provided.
 
 
-## :fire: Results :fire: <a name="Results"></a>
+## :fire: Results :fire: <a name="results"></a>
 We argue that our final segmentation results are very close to the ground-truth annotations, by successfully segmenting not only large camouflaged objects but also small ones. From the figure below and various other results we observed that our method successfully segments the position of camouflage objects with accurate and precise boundaries over several challenging scenes, such as multiple and low-contrast objects. Even when some camouflaged objects are divided into separate parts because of the interference with other non-camouflaged objects RACOD-Net is still capable of detecting and segmenting the expected target.
 <p align="center">
   <img src="https://github.com/mikestratakis/RACOD-Net/blob/master/ShowCase-RACOD-Net/visual_results.png" />
