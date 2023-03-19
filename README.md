@@ -17,10 +17,10 @@ Unlike previous studies RACOD-Net architecture manages to successfully combine t
 As shown in the figure below, displaying the complete architechure, we initially have a total of 7 features from our backbone encoders. A set of 3 features extracted from ResNet50 encoder and a set of 4 features extracted from SegFormer encoder.
 ![Test Image 4](https://github.com/mikestratakis/RACOD-Net/blob/master/ShowCase-RACOD-Net/completearch.png)
 
-## Notebook Demo <a name="NOtebook-Demo"></a>
+## Notebook Demo <a name="Notebook-Demo"></a>
 
 Available Demo of RACOD-Net architecture can be found in online community platform kaggle from the following link:
--
+- 
 
 ## General Instructions <a name="General Instructions"></a>
 In order to execute RACOD-Net you need to install certain libraries. We advice following the next steps, starting from a clean setup of your system.
