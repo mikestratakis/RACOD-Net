@@ -18,6 +18,7 @@ As shown in the figure below, displaying the complete architechure, we initially
 ![Test Image 4](https://github.com/mikestratakis/RACOD-Net/blob/master/ShowCase-RACOD-Net/completearch.png)
 
 ## Notebook Demo <a name="NOtebook-Demo"></a>
+
 Available Demo of RACOD-Net architecture can be found in online community platform kaggle from the following link:
 -
 
