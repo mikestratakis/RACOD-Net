@@ -20,7 +20,7 @@ As shown in the figure below, displaying the complete architechure, we initially
 ## Notebook Demo <a name="Notebook-Demo"></a>
 
 Available Demo of RACOD-Net architecture can be found in online community platform kaggle from the following link:
-- 
+- https://www.kaggle.com/code/michailstratakis/racod-net
 
 ## General Instructions <a name="General Instructions"></a>
 In order to execute RACOD-Net you need to install certain libraries. We advice following the next steps, starting from a clean setup of your system.
