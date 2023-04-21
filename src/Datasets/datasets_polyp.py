@@ -3,7 +3,7 @@ import os
 def dataset_creation(show=True):
     
     # Image Paths For Train Dataset
-    # Train Dataset contains 1000 Images from CAMO Dataset & 2026 Images from COD10K Dataset
+    # Train Dataset contains 900 Images from Kvasir Dataset & 550 Images from CVC-ClinicDB Dataset
     PATH_TO_IMAGES_TRAIN = './Datasets/TrainDataset_Polyp/TrainDataset/images'
     PATH_TO_IMAGES_TRAIN_GT_Object = './Datasets/TrainDataset_Polyp/TrainDataset/masks'
 
@@ -107,7 +107,7 @@ def dataset_creation(show=True):
         test_images_kvasir_gt_object.append(PATH_TO_IMAGES_TEST_KVASIR_GT_Object + "/{}".format(test_images_kvasir_half_path_gt_object[i]))
     
     if show:
-        print('[INFO] Initializing Train Dataset composed by COD10K + CAMO')
+        print('[INFO] Initializing Train Dataset composed by Kvasir +  CVC-ClinicDB')
         print(60*'-')
         print(10*' ' + f'Train Images From Train Dataset are => {len(train_images)}')
         print(10*' ' + f'Train Images With GT-Object are => {len(train_images_gt_object)}')
