@@ -23,7 +23,7 @@ Available Demo of RACOD-Net architecture can be found in online community platfo
 - https://www.kaggle.com/code/michailstratakis/racod-net
 
 ## General Instructions <a name="General Instructions"></a>
-## Installing Required Packages to run Racod-Net
+### Installing Required Packages to execute Racod-Net locally
 ### Update 4/4/2024
 In order to execute RACOD-Net you need to install certain libraries. We advice following the next steps, starting from a clean setup of your system. For this particular deep learning achitecture we used Ubuntu 22.04 as our operating system and an Zotac GeForce RTX 3060 12GB GDDR6 Twin Edge as our Graphic Card. 
 Also it is required to have at least 15gb on your installation directory to proceed successfully in the installation process.
