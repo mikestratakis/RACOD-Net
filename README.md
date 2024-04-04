@@ -23,17 +23,51 @@ Available Demo of RACOD-Net architecture can be found in online community platfo
 - https://www.kaggle.com/code/michailstratakis/racod-net
 
 ## General Instructions <a name="General Instructions"></a>
-In order to execute RACOD-Net you need to install certain libraries. We advice following the next steps, starting from a clean setup of your system.
-- https://developer.nvidia.com/cuda-downloads
-- Install nvidia drivers for your system from: https://developer.nvidia.com/cuda-downloads
-- Install miniconda3 to run your future code in a virtual environment
-- Based from the cuda version downloaded from step 1, install cuda from: https://pytorch.org/get-started/locally/ 
-- Before executing any code choose the python interpeter from the miniconda environment
-- Afterwards install the following packages:
-    - Install timm with conda: conda install -c conda-forge timm
-    - Install matplot with conda: conda install -c conda-forge matplotlib
-    - Install scipy with conda: conda install -c anaconda scipy
-    - Install cv2 with conda: conda install -c conda-forge opencv
+## Update 4/4/2024
+In order to execute RACOD-Net you need to install certain libraries. We advice following the next steps, starting from a clean setup of your system. For this particular deep learning achitecture we used Ubuntu 22.04 as our operating system and an Zotac GeForce RTX 3060 12GB GDDR6 Twin Edge as our Graphic Card. 
+Also it is required to have at least 15gb on your installation directory to proceed successfully in the installation process.
+
+<ins>Optional instructions</ins>
+Generally we suggest installing a virtual environment like miniconda3 to execute Racod-Net in a virtual environment.
+The following instructions will install miniconda3 in your system:
+  - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  - bash Miniconda3-latest-Linux-x86_64.sh
+  - conda --version
+
+If you have installed miniconda3 restart terminal before proceeding further.
+
+The following instructions will apply the cuda drivers on Ubuntu 22.04 and execute Racod-Net successfully.
+On a clean setup execute the following:
+- sudo apt-get update
+- sudo apt-get upgrade
+- Based from https://developer.nvidia.com/cuda-downloads execute the following:
+  - wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
+  - sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+  - wget https://developer.download.nvidia.com/compute/cuda/12.4.0/local_installers/cuda-repo-ubuntu2204-12-4-local_12.4.0-550.54.14-1_amd64.deb
+  - sudo dpkg -i cuda-repo-ubuntu2204-12-4-local_12.4.0-550.54.14-1_amd64.deb
+  - sudo cp /var/cuda-repo-ubuntu2204-12-4-local/cuda-*-keyring.gpg /usr/share/keyrings/
+  - sudo apt-get update
+  - sudo apt-get -y install cuda-toolkit-12-4
+  - sudo apt-get install -y cuda-drivers
+  Now you have installed the 550 proprietary metapackage nvidia driver.
+    - Run the following to check if cuda drivers are installed:
+    - nvcc --version
+      - If nvcc is not found run the following:
+      - sudo apt install nvidia-cuda-toolkit
+      - nvcc --version 
+      - It is now expected that a Cuda compiler driver is intalled in your system
+
+Based from https://pytorch.org/get-started/locally/ execute the following:
+  - conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+
+Afterwards install the following packages that are required from Racod-Net:
+  - Install timm with conda: conda install -c conda-forge timm
+  - Install matplot with conda: conda install -c conda-forge matplotlib
+  - Install scipy with conda: conda install -c anaconda scipy
+  - Install cv2 with conda: conda install -c conda-forge opencv
+
+<ins>Visual Studio Integration</ins>
+  - If using visual studio make sure to select the virtual miniconda3 python interpreter before executing Racod-Net
 
 ## Datasets <a name="Datasets"></a>
 Download the train and test datasets for Camouflaged Object Detection and Polyp Detection from the following links:
