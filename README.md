@@ -51,8 +51,8 @@ On a clean setup execute the following:
   - sudo apt-get install -y cuda-drivers <br>
   Now you have installed the 550 proprietary metapackage nvidia driver.<br>
   Run the following to check if cuda drivers are installed:
-    - nvcc --version
-      - If nvcc is not found run the following:
+    - nvcc --version<br>
+    If nvcc is not found run the following:
       - sudo apt install nvidia-cuda-toolkit
       - nvcc --version 
       - It is now expected that a Cuda compiler driver is intalled in your system
