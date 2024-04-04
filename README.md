@@ -27,8 +27,8 @@ Available Demo of RACOD-Net architecture can be found in online community platfo
 In order to execute RACOD-Net you need to install certain libraries. We advice following the next steps, starting from a clean setup of your system. For this particular deep learning achitecture we used Ubuntu 22.04 as our operating system and an Zotac GeForce RTX 3060 12GB GDDR6 Twin Edge as our Graphic Card. 
 Also it is required to have at least 15gb on your installation directory to proceed successfully in the installation process.
 
-<ins>Optional instructions</ins>
-Generally we suggest installing a virtual environment like miniconda3 to execute Racod-Net in a virtual environment.
+<ins>Optional instructions</ins><br>
+Generally we suggest installing a virtual environment like miniconda3 to execute Racod-Net in a virtual environment.<br>
 The following instructions will install miniconda3 in your system:
   - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
   - bash Miniconda3-latest-Linux-x86_64.sh
@@ -36,7 +36,7 @@ The following instructions will install miniconda3 in your system:
 
 If you have installed miniconda3 restart terminal before proceeding further.
 
-The following instructions will apply the cuda drivers on Ubuntu 22.04 and execute Racod-Net successfully.
+The following instructions will apply the cuda drivers on Ubuntu 22.04 and execute Racod-Net successfully.<br>
 On a clean setup execute the following:
 - sudo apt-get update
 - sudo apt-get upgrade
@@ -48,7 +48,7 @@ On a clean setup execute the following:
   - sudo cp /var/cuda-repo-ubuntu2204-12-4-local/cuda-*-keyring.gpg /usr/share/keyrings/
   - sudo apt-get update
   - sudo apt-get -y install cuda-toolkit-12-4
-  - sudo apt-get install -y cuda-drivers
+  - sudo apt-get install -y cuda-drivers <br>
   Now you have installed the 550 proprietary metapackage nvidia driver.
     - Run the following to check if cuda drivers are installed:
     - nvcc --version
